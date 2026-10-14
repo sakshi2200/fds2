@@ -1,0 +1,70 @@
+#q1
+
+<!DOCTYPE html>
+<html ng-app="bankApp">
+<head>
+    <title>Bank Details</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="bankController">
+
+    <h2>Bank Details</h2>
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Bank Name</th>
+            <th>MICR Code</th>
+            <th>IFSC Code</th>
+            <th>Branch</th>
+            <th>Address</th>
+            <th>City</th>
+        </tr>
+
+        <tr ng-repeat="bank in banks">
+            <td>{{ bank.name }}</td>
+            <td>{{ bank.micr }}</td>
+            <td>{{ bank.ifsc }}</td>
+            <td>{{ bank.branch }}</td>
+            <td>{{ bank.address }}</td>
+            <td>{{ bank.city }}</td>
+        </tr>
+    </table>
+
+    <script>
+        var app = angular.module("bankApp", []);
+
+        app.controller("bankController", function($scope) {
+            $scope.banks = [
+                {
+                    name: "State Bank of India",
+                    micr: "422002001",
+                    ifsc: "SBIN0001234",
+                    branch: "Main Branch",
+                    address: "Main Road",
+                    city: "Nashik"
+                },
+                {
+                    name: "Bank of Maharashtra",
+                    micr: "422014002",
+                    ifsc: "MAHB0000123",
+                    branch: "College Road",
+                    address: "College Road",
+                    city: "Nashik"
+                },
+                {
+                    name: "HDFC Bank",
+                    micr: "422240003",
+                    ifsc: "HDFC0000123",
+                    branch: "City Branch",
+                    address: "MG Road",
+                    city: "Nashik"
+                }
+            ];
+        });
+    </script>
+
+</body>
+</html>
+
+
