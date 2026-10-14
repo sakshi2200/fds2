@@ -1,1 +1,34 @@
+#q1
 
+<!DOCTYPE html>
+<html ng-app="">
+<head>
+    <title>AngularJS Addition</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-init="a=0; b=0; showResult=false">
+
+    <h2>Addition of Two Numbers</h2>
+
+    Enter First Number:
+    <input type="number" ng-model="a"><br><br>
+
+    Enter Second Number:
+    <input type="number" ng-model="b"><br><br>
+
+    <button ng-click="showResult=true"
+            ng-disabled="a==='' || b===''">
+        Add
+    </button>
+
+    <button ng-click="showResult=false">
+        Hide Result
+    </button>
+
+    <h3 ng-show="showResult">
+        Sum: <span ng-bind="a+b"></span>
+    </h3>
+
+</body>
+</html>
