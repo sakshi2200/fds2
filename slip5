@@ -1,1 +1,31 @@
+#q1
 
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <h2>Student Details</h2>
+    <input [(ngModel)]="name" placeholder="Enter Name">
+    <p>Student Name: {{name}}</p>
+  `
+})
+export class AppComponent {
+  name: string = '';
+}
+
+
+#q2
+// Import HTTP module
+const http = require('http');
+
+// Create server
+const server = http.createServer((req, res) => {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end('<h1>Welcome to Node.js Server</h1>');
+});
+
+// Start server
+server.listen(3000, () => {
+    console.log("Server running at http://localhost:3000");
+});
