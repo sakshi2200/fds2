@@ -1,1 +1,38 @@
+#q1
 
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+// Products array
+let products = [];
+
+// Create Product
+app.post('/products', (req, res) => {
+    products.push(req.body);
+    res.send("Product Added Successfully");
+});
+
+// Read Products
+app.get('/products', (req, res) => {
+    res.json(products);
+});
+
+// Start Server
+app.listen(3000, () => {
+    console.log("Server running on port 3000");
+});
+
+#q2
+
+let companies = [
+    {id: 1, name: "Google", employees: 50},
+    {id: 2, name: "Microsoft", employees: 25},
+    {id: 3, name: "Amazon", employees: 40},
+    {id: 4, name: "Infosys", employees: 20}
+];
+
+let result = companies.find(c => c.employees > 30);
+
+console.log(result);
