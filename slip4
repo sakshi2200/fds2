@@ -1,1 +1,67 @@
 
+#q1
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Details</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+    <h2>Student Details</h2>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+
+        <tr ng-repeat="student in students">
+            <td>{{student.id}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.age}}</td>
+        </tr>
+    </table>
+
+    <script>
+        var app = angular.module("myApp", []);
+
+        app.controller("myCtrl", function($scope) {
+            $scope.students = [
+                {id: 1, name: "Sakshi", age: 22},
+                {id: 2, name: "Rahul", age: 23},
+                {id: 3, name: "Priya", age: 21}
+            ];
+        });
+    </script>
+
+</body>
+</html>
+
+
+#q2
+
+const express = require('express');
+const app = express();
+
+// Middleware for parsing request body
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Route with input validation
+app.post('/user', (req, res) => {
+    const { name, age } = req.body;
+
+    if (!name || !age || age <= 0) {
+        return res.status(400).send("Invalid Input Data");
+    }
+
+    res.send("User Details: " + name + ", Age: " + age);
+});
+
+app.listen(3000, () => {
+    console.log("Server running on port 3000");
+});
