@@ -1,1 +1,51 @@
+#q1
 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Games List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-app="" ng-init="games=['Cricket','Football','Hockey','Tennis','Badminton']">
+
+    <h2>AngularJS Games List</h2>
+
+    <p ng-bind="'Click the button to display games'"></p>
+
+    <button ng-click="show=true">Show Games</button>
+
+    <ul ng-show="show">
+        <li ng-repeat="game in games">{{game}}</li>
+    </ul>
+
+</body>
+</html>
+
+
+#q2
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Find Company</h2>
+<p id="demo"></p>
+
+<script>
+let companies = [
+    {id: 1, name: "Google", employees: 50},
+    {id: 2, name: "Microsoft", employees: 25},
+    {id: 3, name: "Amazon", employees: 40},
+    {id: 4, name: "Infosys", employees: 20}
+];
+
+let result = companies.find(company => company.employees > 30);
+
+document.getElementById("demo").innerHTML =
+    "Company: " + result.name + "<br>Workforce: " + result.employees;
+</script>
+
+</body>
+</html>
