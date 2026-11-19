@@ -1,1 +1,31 @@
+#q2
 
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+let employees = [];
+
+// Create Employee
+app.post('/employees', (req, res) => {
+    employees.push(req.body);
+    res.send("Employee Added Successfully");
+});
+
+// Update Employee
+app.put('/employees/:id', (req, res) => {
+    let emp = employees.find(e => e.id == req.params.id);
+
+    if (emp) {
+        emp.name = req.body.name;
+        res.send("Employee Updated Successfully");
+    } else {
+        res.send("Employee Not Found");
+    }
+});
+
+// Start Server
+app.listen(3000, () => {
+    console.log("Server running on port 3000");
+});
