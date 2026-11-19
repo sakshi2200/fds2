@@ -1,1 +1,41 @@
 
+#q1
+
+<!DOCTYPE html>
+<html ng-app="">
+<head>
+    <title>Employee Details</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+<h2>Employee Details</h2>
+
+<div ng-init="employees=[
+    {name:'Sakshi', id:101, pin:422005, address:'Nashik'},
+    {name:'Rahul', id:102, pin:411001, address:'Pune'},
+    {name:'Priya', id:103, pin:400001, address:'Mumbai'}
+]">
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Employee Name</th>
+        <th>Employee ID</th>
+        <th>Pin Code</th>
+        <th>Address</th>
+    </tr>
+
+    <tr ng-repeat="emp in employees">
+        <td>{{emp.name}}</td>
+        <td>{{emp.id}}</td>
+        <td>{{emp.pin}}</td>
+        <td>{{emp.address}}</td>
+    </tr>
+</table>
+
+</div>
+</body>
+</html>
+
+#q2
+
