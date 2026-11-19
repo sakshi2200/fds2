@@ -1,1 +1,49 @@
+#q1
+const express = require('express');
+const app = express();
 
+app.use(express.json());
+
+// Movies array
+let movies = [];
+
+// Create Movie
+app.post('/movies', (req, res) => {
+    movies.push(req.body);
+    res.json({
+        message: "Movie Added Successfully",
+        data: req.body
+    });
+});
+
+// Start Server
+app.listen(3000, () => {
+    console.log("Server running on port 3000");
+});
+
+#q2
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <h2>Basketball Players</h2>
+    <ul>
+      <li *ngFor="let name of players">{{name}}</li>
+    </ul>
+  `
+})
+export class AppComponent {
+
+  students = [
+    {name: 'Sakshi', game: 'Basketball'},
+    {name: 'Rahul', game: 'Cricket'},
+    {name: 'Priya', game: 'Basketball'},
+    {name: 'Amit', game: 'Football'}
+  ];
+
+  players = this.students
+    .filter(s => s.game === 'Basketball')
+    .map(s => s.name);
+}
