@@ -1,1 +1,14 @@
+#q1
 
+let companies = [
+    {id: 1, name: "Google", employees: 50},
+    {id: 2, name: "Microsoft", employees: 25},
+    {id: 3, name: "Amazon", employees: 40},
+    {id: 4, name: "Infosys", employees: 20}
+];
+
+let result = companies.find(c => c.employees > 30);
+
+console.log("Company Name:", result.name);
+console.log("Company ID:", result.id);
+console.log("Workforce:", result.employees);
