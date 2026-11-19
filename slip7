@@ -1,1 +1,46 @@
+#q1
 
+const fs = require('fs').promises;
+
+async function readFiles() {
+    try {
+        let data1 = await fs.readFile('file1.txt', 'utf8');
+        let data2 = await fs.readFile('file2.txt', 'utf8');
+        let data3 = await fs.readFile('file3.txt', 'utf8');
+
+        console.log(data1);
+        console.log(data2);
+        console.log(data3);
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+readFiles();
+
+#q2
+
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+// Users array
+let users = [];
+
+// Create User
+app.post('/users', (req, res) => {
+    users.push(req.body);
+    res.send("User Added Successfully");
+});
+
+// Read Users
+app.get('/users', (req, res) => {
+    res.json(users);
+});
+
+// Start Server
+app.listen(3000, () => {
+    console.log("Server running on port 3000");
+});
