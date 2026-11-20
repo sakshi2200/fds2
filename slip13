@@ -1,1 +1,85 @@
+#q1
 
+const express = require('express');
+const app = express();
+
+// Middleware to parse JSON data
+app.use(express.json());
+
+// Middleware to parse form data
+app.use(express.urlencoded({ extended: true }));
+
+let users = [];
+
+// POST route to create user
+app.post('/users', (req, res) => {
+
+    const { name, email, age } = req.body;
+
+    // Input validation
+    if (!name || !email || !age) {
+        return res.status(400).json({
+            success: false,
+            message: 'All fields are required'
+        });
+    }
+
+    if (!email.includes('@')) {
+        return res.status(400).json({
+            success: false,
+            message: 'Invalid email address'
+        });
+    }
+
+    if (age <= 0) {
+        return res.status(400).json({
+            success: false,
+            message: 'Age must be greater than zero'
+        });
+    }
+
+    const user = {
+        id: users.length + 1,
+        name,
+        email,
+        age
+    };
+
+    users.push(user);
+
+    // Success response
+    res.status(201).json({
+        success: true,
+        message: 'User created successfully',
+        data: user
+    });
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+    res.status(500).json({
+        success: false,
+        message: 'Internal Server Error'
+    });
+});
+
+// Start server
+app.listen(3000, () => {
+    console.log('Server running on port 3000');
+});
+
+#q2
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-student',
+  templateUrl: './student.component.html'
+})
+export class StudentComponent {
+
+  name: string = 'Sakshi';
+  age: number = 22;
+  course: string = 'MSc Computer Science';
+
+}
